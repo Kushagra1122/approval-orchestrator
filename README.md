@@ -11,18 +11,23 @@
 
 Watch the quick demo: https://www.youtube.com/watch?v=qXhD0T4tH3A
 
-## �️ Screenshots
+## 🖼️ Screenshots
 
-A few screenshots from the app (served from the frontend public folder):
+A few screenshots from the app (served from the frontend public folder). If images don't render in some viewers, the raw GitHub links below should load reliably.
 
 <div align="center">
 
-![Dashboard](frontend/public/screenshots/Screenshot 2025-10-16 at 3.13.17 AM.png)
-![Workflow Detail](frontend/public/screenshots/Screenshot 2025-10-16 at 3.13.30 AM.png)
-![Create Workflow](frontend/public/screenshots/Screenshot 2025-10-16 at 3.13.40 AM.png)
-![Approvals](frontend/public/screenshots/Screenshot 2025-10-16 at 3.13.53 AM.png)
-![Analytics](frontend/public/screenshots/Screenshot 2025-10-16 at 3.14.28 AM.png)
-![Timeline](frontend/public/screenshots/Screenshot 2025-10-16 at 3.14.38 AM.png)
+<img src="https://raw.githubusercontent.com/Kushagra1122/approval-orchestrator/main/frontend/public/screenshots/Screenshot%202025-10-16%20at%203.13.17%E2%80%AFAM.png" alt="Dashboard" width="320" style="margin:8px" />
+
+<img src="https://raw.githubusercontent.com/Kushagra1122/approval-orchestrator/main/frontend/public/screenshots/Screenshot%202025-10-16%20at%203.13.30%E2%80%AFAM.png" alt="Workflow Detail" width="320" style="margin:8px" />
+
+<img src="https://raw.githubusercontent.com/Kushagra1122/approval-orchestrator/main/frontend/public/screenshots/Screenshot%202025-10-16%20at%203.13.40%E2%80%AFAM.png" alt="Create Workflow" width="320" style="margin:8px" />
+
+<img src="https://raw.githubusercontent.com/Kushagra1122/approval-orchestrator/main/frontend/public/screenshots/Screenshot%202025-10-16%20at%203.13.53%E2%80%AFAM.png" alt="Approvals" width="320" style="margin:8px" />
+
+<img src="https://raw.githubusercontent.com/Kushagra1122/approval-orchestrator/main/frontend/public/screenshots/Screenshot%202025-10-16%20at%203.14.28%E2%80%AFAM.png" alt="Analytics" width="320" style="margin:8px" />
+
+<img src="https://raw.githubusercontent.com/Kushagra1122/approval-orchestrator/main/frontend/public/screenshots/Screenshot%202025-10-16%20at%203.14.38%E2%80%AFAM.png" alt="Timeline" width="320" style="margin:8px" />
 
 </div>
 
