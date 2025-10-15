@@ -158,6 +158,7 @@ graph TB
 | **SQLite** | Database (Development) | 5+ |
 | **Nodemailer** | Email Service | 6+ |
 | **UUID** | Unique Identifiers | 9+ |
+| **Cron Jobs** | Background Task Scheduling | Built-in |
 
 ### Integrations & Tools
 - **Slack Webhooks** - Rich notification delivery
