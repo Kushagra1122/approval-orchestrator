@@ -46,7 +46,7 @@ export class SlackWebhookIntegration {
                   type: "plain_text",
                   text: "✅ Approve"
                 },
-                url: `http://localhost:5173/approvals/${approval.id}?decision=approve`,
+                url: `https://approval-orchestrator.netlify.app/approvals/${approval.id}?decision=approve`,
                 action_id: "approve"
               },
               {
@@ -55,7 +55,7 @@ export class SlackWebhookIntegration {
                   type: "plain_text",
                   text: "❌ Reject"
                 },
-                url: `http://localhost:5173/approvals/${approval.id}?decision=reject`,
+                url: `https://approval-orchestrator.netlify.app/approvals/${approval.id}?decision=reject`,
                 action_id: "reject"
               },
               {
@@ -64,7 +64,7 @@ export class SlackWebhookIntegration {
                   type: "plain_text", 
                   text: "📊 View Details"
                 },
-                url: `http://localhost:5173/approvals/${approval.id}`,
+                url: `https://approval-orchestrator.netlify.app/approvals/${approval.id}`,
                 action_id: "view_details"
               }
             ]

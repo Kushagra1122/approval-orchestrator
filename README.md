@@ -197,12 +197,19 @@ cd ../frontend && npm install
 
 3. **Configure environment**
 ```bash
-# Copy environment template
+# Backend environment setup
 cd backend
 cp .env.example .env
 
-# Edit .env with your settings
-nano .env
+# Frontend environment setup  
+cd ../frontend
+cp .env.example .env
+
+# Edit backend .env with your settings
+cd backend && nano .env
+
+# Edit frontend .env with your API URL
+cd ../frontend && nano .env
 ```
 
 4. **Start the application**
@@ -224,10 +231,11 @@ cd frontend && npm run dev
 
 ### ⚙️ Configuration
 
-#### Required Environment Variables
+#### Backend Environment Variables
 ```bash
 # Server Configuration
 PORT=8000                          # Backend server port
+FRONTEND_URL=http://localhost:5173  # Frontend URL for CORS
 
 # Slack Integration (Optional)
 SLACK_WEBHOOK_URL=https://hooks.slack.com/services/YOUR/SLACK/WEBHOOK
@@ -240,6 +248,27 @@ EMAIL_USER=your-email@gmail.com    # SMTP username
 EMAIL_PASS=your-app-password       # SMTP password
 EMAIL_FROM=no-reply@yourdomain.com # From address
 EMAIL_ADMIN=admin@yourdomain.com   # Admin notifications
+```
+
+#### Frontend Environment Variables
+```bash
+# API Configuration
+VITE_API_BASE_URL=http://localhost:8000  # Backend API URL
+```
+
+#### Production Configuration
+For production deployment, update the environment variables:
+
+**Backend (.env)**
+```bash
+PORT=8000
+FRONTEND_URL=https://your-frontend-domain.com
+# ... other production settings
+```
+
+**Frontend (.env)**
+```bash
+VITE_API_BASE_URL=https://your-api-domain.com
 ```
 
 #### 📧 Email Setup Examples
@@ -367,6 +396,18 @@ cd frontend && npm run lint
 # Reset database (development only)
 rm backend/approvals.db  # Will recreate on next start
 ```
+
+### **Environment Setup for Different Stages**
+
+#### **Development**
+- Backend runs on `http://localhost:8000`
+- Frontend runs on `http://localhost:5173`
+- Uses `.env` files for configuration
+
+#### **Production**
+- Update `VITE_API_BASE_URL` to production API endpoint
+- Update `FRONTEND_URL` in backend for proper CORS
+- Configure production SMTP and Slack webhooks
 
 *Built with passion for solving real workflow problems* ⚡
 
