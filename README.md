@@ -73,9 +73,7 @@ graph TD
     M --> C
     N --> P[📊 Analytics Update]
     O --> P
-    
-    P --> Q[🔔 Real-time Updates via WebSocket]
-    
+
     subgraph "🔄 Rollback System"
         R[🚨 Rollback Triggered] --> S[📋 Compensation Actions]
         S --> T[📧 Notify Stakeholders]
@@ -149,7 +147,6 @@ graph TB
 | **Vite** | Build Tool & Dev Server | Latest |
 | **Tailwind CSS** | Styling Framework | 4+ |
 | **React Router** | Client-side Routing | 6+ |
-| **Recharts** | Data Visualization | 3+ |
 | **Axios** | HTTP Client | Latest |
 
 ### Backend
@@ -255,18 +252,6 @@ EMAIL_USER=your-gmail@gmail.com
 EMAIL_PASS=your-app-password  # Generate in Google Account settings
 ```
 
-**Outlook/Hotmail**
-```bash
-EMAIL_HOST=smtp-mail.outlook.com
-EMAIL_PORT=587
-EMAIL_SECURE=false
-EMAIL_USER=your-email@outlook.com
-EMAIL_PASS=your-password
-```
-
-**Development Mode**
-> If no SMTP is configured, the system automatically creates Ethereal test accounts for email previews.
-
 ## 🎯 Usage Guide
 
 ### Creating Your First Workflow
@@ -317,90 +302,7 @@ EMAIL_PASS=your-password
 - **Overview**: Key metrics and status distribution
 - **Performance**: Average approval times and completion rates
 - **Activity**: Real-time feed of approval activities
-- **Charts**: Visual insights into workflow patterns
 
-## 🔄 Workflow Process Flow
-### 1. Workflow Creation Process
-```mermaid
-sequenceDiagram
-    participant U as User
-    participant F as Frontend
-    participant B as Backend
-    participant D as Database
-    
-    U->>F: Create New Workflow
-    F->>B: POST /workflows
-    B->>D: Insert workflow record
-    D-->>B: Workflow created
-    B-->>F: Return workflow data
-    F-->>U: Show workflow details
-```
-
-### 2. Approval Step Addition
-```mermaid
-sequenceDiagram
-    participant U as User
-    participant B as Backend
-    participant S as Slack
-    participant E as Email
-    participant D as Database
-    
-    U->>B: Add approval step
-    B->>D: Create approval record
-    B->>D: Update workflow status to 'paused'
-    
-    alt Slack Channel
-        B->>S: Send webhook notification
-    else Email Channel
-        B->>E: Send email notification
-    end
-    
-    B-->>U: Confirmation response
-```
-
-### 3. Approval Processing
-```mermaid
-sequenceDiagram
-    participant A as Approver
-    participant B as Backend
-    participant D as Database
-    participant N as Notifications
-    
-    A->>B: Submit decision (approve/reject)
-    B->>D: Update approval status
-    B->>D: Check remaining pending approvals
-    
-    alt No pending approvals
-        B->>D: Set workflow status to 'running'
-    else Still pending
-        B->>D: Keep workflow status as 'paused'
-    end
-    
-    B->>N: Send decision notification
-    B-->>A: Confirmation response
-```
-
-## 📊 Analytics & Insights
-
-The comprehensive analytics dashboard provides deep insights into your approval processes:
-
-### **Key Metrics Tracked**
-- **Workflow Performance**: Average completion times and success rates
-- **Approval Patterns**: Identify which steps take longest and who approves fastest  
-- **Activity Timeline**: Complete audit trail of all workflow activities
-- **Channel Effectiveness**: Compare performance across Slack, Email, and Web notifications
-- **Response Time Analysis**: Track how quickly different types of approvals are processed
-- **Rollback Statistics**: Monitor workflow rollbacks and understand their frequency and causes
-
-### **Real-time Features**
-- **Auto-refresh**: Dashboard updates every 30 seconds for near real-time insights
-- **Live Activity Feed**: See approval decisions as they happen
-- **Performance Alerts**: Identify bottlenecks and slow approvals instantly
-
-### **Visual Analytics**
-- **Interactive Charts**: Powered by Recharts for beautiful data visualization
-- **Trend Analysis**: Historical performance tracking over time  
-- **Comparative Views**: Side-by-side analysis of different workflows and channels
 
 ## 🚧 Development
 
@@ -464,85 +366,6 @@ cd frontend && npm run lint
 # Reset database (development only)
 rm backend/approvals.db  # Will recreate on next start
 ```
-
-## 🛣️ Roadmap
-
-### **Phase 1: Foundation** ✅
-- [x] Core workflow engine
-- [x] Multi-channel notifications (Slack, Email, Web)
-- [x] Analytics dashboard with charts
-- [x] Rollback system with compensation actions
-- [x] Background cleanup jobs
-
-### **Phase 2: Real-time & Enhancement** 🚧
-- [ ] **Real-time WebSocket integration** - Connect frontend to existing WebSocket server
-- [ ] **Advanced approval routing** - Conditional logic and parallel approvals
-- [ ] **Bulk operations** - Mass approve/reject capabilities
-- [ ] **Template system** - Reusable workflow templates
-
-### **Phase 3: Integration & Scale** 📅
-- [ ] **API integrations** - Connect with external systems (JIRA, GitHub, etc.)
-- [ ] **Mobile app** - Native iOS/Android apps for approvals on the go
-- [ ] **Advanced reporting** - Custom dashboards and scheduled reports
-- [ ] **SSO Integration** - Enterprise authentication providers
-
-### **Phase 4: Intelligence** 🔮
-- [ ] **ML-powered insights** - Predictive approval times and bottleneck detection
-- [ ] **Smart routing** - AI-suggested approvers based on context
-- [ ] **Automated approvals** - Rule-based auto-approval for routine requests
-
-## 🤝 Contributing
-
-We welcome contributions! Here's how you can help:
-
-### **Ways to Contribute**
-- 🐛 **Bug Reports** - Found an issue? Open a GitHub issue
-- 💡 **Feature Requests** - Have an idea? We'd love to hear it
-- 🔧 **Code Contributions** - Submit PRs for bugs fixes or new features
-- 📚 **Documentation** - Help improve our docs and examples
-- 🧪 **Testing** - Write tests or report testing results
-
-### **Development Setup**
-```bash
-1. Fork the repository
-2. Clone your fork: git clone https://github.com/YOUR_USERNAME/approval-orchestrator.git
-3. Create a feature branch: git checkout -b feature/amazing-feature
-4. Make your changes and commit: git commit -m 'Add amazing feature'
-5. Push to the branch: git push origin feature/amazing-feature  
-6. Open a Pull Request
-```
-
-### **Contribution Guidelines**
-- Follow existing code style and conventions
-- Add tests for new functionality
-- Update documentation for any changes
-- Ensure all tests pass before submitting PR
-
-## 📄 License
-
-This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) file for details.
-
-## 🆘 Support & Community
-
-### **Getting Help**
-- 📖 **Documentation** - Check this README and inline code comments
-- 🐛 **Issues** - Report bugs via [GitHub Issues](https://github.com/Kushagra1122/approval-orchestrator/issues)
-- 💬 **Discussions** - Join conversations in [GitHub Discussions](https://github.com/Kushagra1122/approval-orchestrator/discussions)
-
-### **Community**
-- ⭐ **Star the repo** if you find it useful
-- 🍴 **Fork and contribute** to help improve the project
-- 📢 **Share** with others who might benefit from better approval workflows
-
-## 🎯 Project Vision
-
-**Approval Orchestrator** aims to transform how organizations handle approval processes by:
-
-- **Eliminating Bottlenecks** - No more approvals lost in email chains or Slack threads
-- **Providing Transparency** - Complete visibility into approval status and progress  
-- **Enabling Data-Driven Decisions** - Rich analytics to optimize your processes
-- **Integrating Seamlessly** - Work with your existing tools, don't replace them
-- **Scaling Gracefully** - From small teams to enterprise-level organizations
 
 *Built with passion for solving real workflow problems* ⚡
 
