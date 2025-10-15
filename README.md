@@ -7,7 +7,26 @@
 [![License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
 
-## 🚀 What This System Solves
+## 🎬 Demo Video
+
+Watch the quick demo: https://www.youtube.com/watch?v=qXhD0T4tH3A
+
+## �️ Screenshots
+
+A few screenshots from the app (served from the frontend public folder):
+
+<div align="center">
+
+![Dashboard](frontend/public/screenshots/Screenshot 2025-10-16 at 3.13.17 AM.png)
+![Workflow Detail](frontend/public/screenshots/Screenshot 2025-10-16 at 3.13.30 AM.png)
+![Create Workflow](frontend/public/screenshots/Screenshot 2025-10-16 at 3.13.40 AM.png)
+![Approvals](frontend/public/screenshots/Screenshot 2025-10-16 at 3.13.53 AM.png)
+![Analytics](frontend/public/screenshots/Screenshot 2025-10-16 at 3.14.28 AM.png)
+![Timeline](frontend/public/screenshots/Screenshot 2025-10-16 at 3.14.38 AM.png)
+
+</div>
+
+## �🚀 What This System Solves
 
 Every organization struggles with approval bottlenecks. Whether it's:
 - 💰 **Budget approvals** stuck in email chains

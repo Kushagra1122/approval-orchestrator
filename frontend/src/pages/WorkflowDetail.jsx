@@ -153,7 +153,7 @@ export default function WorkflowDetail() {
         label: 'Channel',
         required: true,
         options: [
-          { value: 'slack', label: 'Slack 🚀' },
+          { value: 'slack', label: 'Slack' },
           { value: 'web', label: 'Web' },
           { value: 'email', label: 'Email' }
         ],
@@ -384,7 +384,7 @@ export default function WorkflowDetail() {
                                 ? 'bg-purple-100 text-purple-800' 
                                 : 'bg-gray-100 text-gray-800'
                             }`}>
-                              {approval.channel === 'slack' ? 'Slack 🚀' : approval.channel}
+                              {approval.channel === 'slack' ? 'Slack' : approval.channel}
                             </span>
                           </div>
                         </div>
