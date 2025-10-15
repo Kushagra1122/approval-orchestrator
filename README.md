@@ -101,7 +101,7 @@ graph TB
     end
     
     subgraph "🔄 Backend Infrastructure"
-        F[⚡ WebSocket Setup (Future)]
+        F[⚡ WebSocket Setup Future]
         G[🔔 Event System]
     end
     
