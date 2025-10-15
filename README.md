@@ -71,9 +71,9 @@ graph TB
         E[✅ Approval Management]
     end
     
-    subgraph "🔄 Real-time Layer"
-        F[⚡ WebSocket Server]
-        G[🔔 Event Bus]
+    subgraph "🔄 Backend Infrastructure"
+        F[⚡ WebSocket Setup (Future)]
+        G[🔔 Event System]
     end
     
     subgraph "🚀 Backend (Node.js + Express)"
@@ -113,13 +113,10 @@ graph TB
 
 ## What Makes This Special
 
-### 🚀 Real-time Everything
-I implemented WebSocket connections so when someone approves something, everyone sees it instantly. No more refreshing pages or wondering if your approval went through.
-
 ### 🎯 Smart Notifications
 The system is smart about how it notifies people:
 - **Slack integration** sends interactive messages with approve/reject buttons
-- **Email notifications** include direct action links
+- **Email notifications** include direct action links  
 - **Web dashboard** shows everything in a beautiful, organized interface
 
 ### 📊 Built-in Analytics
@@ -128,6 +125,7 @@ I added comprehensive analytics because data drives better decisions:
 - Identify bottlenecks in your processes
 - Track completion rates and success metrics
 - Visualize everything with beautiful charts using Recharts
+- Auto-refresh analytics every 30 seconds for near real-time insights
 
 ### 🔄 Sophisticated Rollback System
 Sometimes you need to undo things. I built a complete rollback system that:
@@ -149,7 +147,7 @@ Sometimes you need to undo things. I built a complete rollback system that:
 
 **Backend (Node.js + Express)**
 - Express.js for a robust API foundation
-- Socket.io for real-time bidirectional communication
+- Socket.io setup for future real-time features
 - SQLite for development (easily upgradable to PostgreSQL/MySQL)
 - Nodemailer for flexible email sending
 - UUID for secure, unique identifiers
@@ -157,7 +155,8 @@ Sometimes you need to undo things. I built a complete rollback system that:
 **Key Integrations I Built**
 - **Slack Webhook Integration** - Send rich notifications with action buttons
 - **Email Integration** - SMTP support with HTML templates and fallback to test accounts
-- **Background Job System** - Automatic cleanup of expired approvals
+- **Background Cleanup System** - Automatic cleanup of expired approvals
+- **Analytics Auto-refresh** - Dashboard updates every 30 seconds
 
 ## Getting Started
 
@@ -192,9 +191,13 @@ PORT=8000
 SLACK_WEBHOOK_URL=your-slack-webhook-url
 
 # Email setup (uses test accounts if not configured)
-EMAIL_HOST=your-smtp-host
-EMAIL_USER=your-email
-EMAIL_PASS=your-password
+EMAIL_HOST=smtp.example.com
+EMAIL_PORT=587
+EMAIL_SECURE=false
+EMAIL_USER=your-email@example.com
+EMAIL_PASS=your-email-password
+EMAIL_FROM=no-reply@yourdomain.com
+EMAIL_ADMIN=admin@yourdomain.com
 ```
 
 ## How the Workflow Process Works
@@ -257,9 +260,9 @@ sequenceDiagram
         B->>D: Keep workflow status as 'paused'
     end
     
-    B->>W: Emit approval update
+    B->>W: Emit approval update (WebSocket ready for future)
     B->>N: Send decision notification
-    W-->>A: Real-time status update
+    W-->>A: Status updated on next page refresh
 ```
 
 ## The Analytics Dashboard I Built
@@ -267,18 +270,23 @@ sequenceDiagram
 I created a comprehensive analytics system that tracks:
 
 - **Workflow Performance** - Average completion times, success rates
-- **Approval Patterns** - Which steps take longest, who approves fastest
+- **Approval Patterns** - Which steps take longest, who approves fastest  
 - **Activity Timeline** - Complete audit trail of all actions
-- **Real-time Metrics** - Live updates of pending approvals and completed workflows
+- **Auto-refresh Analytics** - Dashboard updates every 30 seconds for near real-time insights
+- **Channel Distribution** - See which notification channels are most effective
+- **Response Time Analytics** - Track how quickly approvals are processed
+- **Rollback Statistics** - Monitor workflow rollbacks and their frequency
 
 ## What's Next
 
 This system is designed to grow. Some ideas for future enhancements:
-- **Microsoft Teams integration** for broader collaboration
+- **Real-time WebSocket integration** - Connect frontend to existing WebSocket server for instant updates
 - **Advanced approval routing** based on business rules
-- **API integrations** with external systems
+- **API integrations** with external systems  
 - **Mobile app** for approvals on the go
 - **Advanced reporting** with custom dashboards
+- **Bulk approval operations** for efficiency
+- **Conditional workflows** based on approval outcomes
 
 ## Why I Built This
 
