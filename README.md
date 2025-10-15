@@ -192,9 +192,13 @@ PORT=8000
 SLACK_WEBHOOK_URL=your-slack-webhook-url
 
 # Email setup (uses test accounts if not configured)
-EMAIL_HOST=your-smtp-host
-EMAIL_USER=your-email
-EMAIL_PASS=your-password
+EMAIL_HOST=smtp.example.com
+EMAIL_PORT=587
+EMAIL_SECURE=false
+EMAIL_USER=your-email@example.com
+EMAIL_PASS=your-email-password
+EMAIL_FROM=no-reply@yourdomain.com
+EMAIL_ADMIN=admin@yourdomain.com
 ```
 
 ## How the Workflow Process Works
